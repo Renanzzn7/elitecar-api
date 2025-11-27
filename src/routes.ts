@@ -1,0 +1,57 @@
+import type { Request, Response } from "express";
+import { Router } from "express";
+import CarroController from "./controller/Carrocontroller.js";
+import ClienteController from "./controller/Clientecontroller.js";
+import PedidoVendaController from "./controller/PedidoVendacontroller.js";
+
+const router = Router(); // Cria um novo roteador
+
+// Cria uma rota no servidor, acessível pelo verbo GET no endpoint /
+// Essa rota apenas exibe uma menssagem para o cliente com o status da API
+router.get("/", (req: Request, res: Response) => {
+    res.status(200).json({ mensagem: "Se você está vendo essa mensagem, seu servidor está funcionando." });
+});
+
+/**
+ * Endpoints (rotas) para Carros
+ */
+// Retorna a lista com todos os carros
+router.get("/api/carros", CarroController.todos);
+// Retorna um carro com ID específico
+router.get("/api/carros/:idCarro", CarroController.carro);
+// Insere um novo carro no banco
+router.post("/api/carros", CarroController.novo);
+// Atualiza um carro no banco
+router.put("/api/carros/:idCarro", CarroController.atualizar)
+// Remove um carro no banco
+router.delete("/api/carros/remover/:idCarro", CarroController.remover);
+
+/**
+ * Endpoints (rotas) para Clientes
+ */
+// Retorna a lista com todos os clientes
+router.get("/api/clientes", ClienteController.todos);
+// Retorna um cliente com o ID específico
+router.get("/api/clientes/:idCliente", ClienteController.cliente);
+// Insere um novo cliente no banco
+router.post("/api/clientes", ClienteController.novo);
+// Atualiza um cliente no banco
+router.put("/api/clientes/:idCliente", ClienteController.atualizar);
+// Remover um cliente do banco
+router.delete("/api/clientes/remover/:idCliente", ClienteController.remover);
+
+/**
+ * Endpoints (rotas) para PedidosVenda
+ */
+// Retorna a lista com todos os pedidos de venda
+router.get("/api/pedidos", PedidoVendaController.todos);
+// Retorna um pedido com o ID específico
+router.get("/api/pedidos/:idPedido", PedidoVendaController.pedido);
+// Insere um novo pedido no banco
+router.post("/api/pedidos", PedidoVendaController.novo);
+// Atualiza um pedido no banco
+router.put("/api/pedidos/:idPedido", PedidoVendaController.atualizar);
+// Remover um pedido do banco
+router.delete("/api/pedidos/remover/:idPedido", PedidoVendaController.remover);
+
+export { router }; // Exporta do roteador

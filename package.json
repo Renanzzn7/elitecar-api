@@ -1,52 +1,28 @@
 {
- 
-  "type": "module",
- 
   "name": "elitecar-api",
- 
   "version": "1.0.0",
- 
-  "main": "dist/server.js",
- 
-  "scripts": {
- 
-   
-  "dev": "ts-node src/server.ts",
- 
-   
-  "start": "node dist/server.js",
- 
-   
-  "build": "tsc"
- 
+  "main": "index.js",
+  "type": "module",
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
- 
+  "keywords": [],
+  "author": "Renan Vinicius",
+  "license": "ISC",
+  "description": "",
   "devDependencies": {
- 
-   
-  "@types/cors": "^2.8.19",
- 
-   
-  "@types/express": "^5.0.3",
- 
-   
-  "nodemon": "^3.0.1",
- 
-   
-  "ts-node": "^10.9.1",
- 
-   
-  "typescript": "^5.2.2"
- 
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.9.1",
+    "@types/pg": "^8.15.5",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
- 
   "dependencies": {
- 
-   
-  "cors": "^2.8.5",
- 
-   
-  "express": "^4.18.2"
- 
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pg": "^8.16.3"
   }
 }

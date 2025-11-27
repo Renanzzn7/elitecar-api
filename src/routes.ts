@@ -33,12 +33,14 @@ router.delete("/api/carros/remover/:idCarro", CarroController.remover);
 router.get("/api/clientes", ClienteController.todos);
 // Retorna um cliente com o ID específico
 router.get("/api/clientes/:idCliente", ClienteController.cliente);
-// Insere um novo cliente no banco
-router.post("/api/clientes", ClienteController.novo);
-// Atualiza um cliente no banco
-router.put("/api/clientes/:idCliente", ClienteController.atualizar);
-// Remove um cliente do banco
-router.delete("/api/clientes/remover/:idCliente", ClienteController.remover);
+// Insere um novo cliente no banco (compatível com frontend)
+router.post("/novo/cliente", ClienteController.novo);
+// Atualiza um cliente no banco (compatível com frontend)
+router.put("/atualizar/cliente/:idCliente", ClienteController.atualizar);
+// Remove um cliente do banco (compatível com frontend)
+router.delete("/delete/cliente/:idCliente", ClienteController.remover);
+// Retorna lista de clientes (compatível com frontend)
+router.get("/lista/clientes", ClienteController.todos);
 
 /**
  * Endpoints (rotas) para PedidosVenda
